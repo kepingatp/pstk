@@ -62,8 +62,9 @@ class ToggleAction extends Action
      * @param Model $model
      * @return string
      */
-    Yii::$app->response->format = Response::FORMAT_JSON;
+    
     public function setValue($value,$model){
+        Yii::$app->response->format = Response::FORMAT_JSON;
         if (is_callable($this->condition)) {
             return call_user_func($this->condition, $value);
         } else {
