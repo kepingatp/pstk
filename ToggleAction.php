@@ -42,7 +42,7 @@ class ToggleAction extends Action
     */
     public function run($id)
     {
-//        Yii::$app->response->format = Response::FORMAT_JSON;
+
         if (Yii::$app->request->isAjax) {
               
              $model = $this->findModel($id);
@@ -62,6 +62,7 @@ class ToggleAction extends Action
      * @param Model $model
      * @return string
      */
+    Yii::$app->response->format = Response::FORMAT_JSON;
     public function setValue($value,$model){
         if (is_callable($this->condition)) {
             return call_user_func($this->condition, $value);
